@@ -6,51 +6,34 @@ while True:
     print("3. Leer archivo")
     print("4. Actualizar nombre")
     print("5. Cerrar")
-
     opcion = input("Elige una opción: ")
-
-    # 1. Crear archivo
     if opcion == "1":
         f = open(archivo, "w")
         f.close()
-
-    # 2. Guardar registro
     elif opcion == "2":
         f = open(archivo, "a")
-
         nombre = input("Nombre: ")
         matricula = input("Matrícula: ")
         correo = input("Correo: ")
         telefono = input("Teléfono: ")
-
         f.write("NOMBRE: " + nombre + "\n")
         f.write("MATRICULA: " + matricula + "\n")
         f.write("CORREO: " + correo + "\n")
         f.write("TELEFONO: " + telefono + "\n\n")
-
         f.close()
-
-    # 3. Leer archivo
     elif opcion == "3":
         f = open(archivo, "r")
         print(f.read())
         f.close()
-
-    # 4. Actualizar nombre (en TODO el archivo)
     elif opcion == "4":
         buscar = input("Nombre a buscar: ")
         nuevo = input("Nuevo nombre: ")
-
         f = open(archivo, "r")
         texto = f.read()
         f.close()
-
         texto = texto.replace(buscar, nuevo)
-
         f = open(archivo, "w")
         f.write(texto)
         f.close()
-
-    # 5. Cerrar
     elif opcion == "5":
         break
